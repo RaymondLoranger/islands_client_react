@@ -2,13 +2,10 @@
 # │ Inspired by the course "Elixir for Programmers" by Dave Thomas. │
 # └─────────────────────────────────────────────────────────────────┘
 defmodule Islands.Client.React do
-  use PersistConfig
-
-  @course_ref Application.get_env(@app, :course_ref)
-
   @moduledoc """
   Reacts to a game state in the _Game of Islands_.
-  \n##### #{@course_ref}
+
+  ##### Inspired by the course [Elixir for Programmers](https://codestool.coding-gnome.com/courses/elixir-for-programmers) by Dave Thomas.
   """
 
   alias __MODULE__.{Initialized, Player1Turn, Player2Turn, PlayersSet}
