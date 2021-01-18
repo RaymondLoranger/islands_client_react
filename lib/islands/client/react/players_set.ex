@@ -1,5 +1,5 @@
 defmodule Islands.Client.React.PlayersSet do
-  alias Islands.Client.{State, Summary, Wait}
+  alias Islands.Client.{State, Wait}
   alias Islands.{Score, Tally}
 
   @spec maybe_wait(State.t()) :: State.t()
@@ -12,9 +12,10 @@ defmodule Islands.Client.React.PlayersSet do
           }
         } = state
       ) do
-    state
-    |> Summary.display()
-    |> Wait.wait_for(
+    :ok = Tally.summary(state.tally, state.player_id)
+
+    Wait.wait_for(
+      state,
       :player1_turn,
       "please wait for your opponent to set #{what(gender)} islands"
     )
@@ -29,9 +30,10 @@ defmodule Islands.Client.React.PlayersSet do
           }
         } = state
       ) do
-    state
-    |> Summary.display()
-    |> Wait.wait_for(
+    :ok = Tally.summary(state.tally, state.player_id)
+
+    Wait.wait_for(
+      state,
       :player2_turn,
       "please wait for your opponent to set #{what(gender)} islands and play"
     )
