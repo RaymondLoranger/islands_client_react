@@ -12,6 +12,9 @@ defmodule Islands.Client.React do
   alias Islands.Client.{GameOver, State}
   alias Islands.State, as: StateMachine
 
+  @doc """
+  Reacts to a game state.
+  """
   # :initialized, :players_set, :player1_turn, :player2_turn, :game_over
   @spec react_to(State.t(), StateMachine.game_state()) :: State.t() | no_return
   def react_to(state, game_state)
