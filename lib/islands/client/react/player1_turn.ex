@@ -1,7 +1,14 @@
 defmodule Islands.Client.React.Player1Turn do
+  @moduledoc """
+  Reacts to game state `:player2_turn`.
+  """
+
   alias Islands.Client.{State, Wait}
   alias Islands.Tally
 
+  @doc """
+  Reacts to game state `:player2_turn`.
+  """
   @spec maybe_wait(State.t()) :: State.t()
   def maybe_wait(%State{player_id: :player2} = state) do
     :ok = Tally.summary(state.tally, state.player_id)

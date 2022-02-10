@@ -1,7 +1,14 @@
 defmodule Islands.Client.React.PlayersSet do
+  @moduledoc """
+  Reacts to game state `:players_set`.
+  """
+
   alias Islands.Client.{State, Wait}
   alias Islands.{Score, Tally}
 
+  @doc """
+  Reacts to game state `:players_set`.
+  """
   @spec maybe_wait(State.t()) :: State.t()
   def maybe_wait(
         %State{
