@@ -22,5 +22,5 @@ defmodule Islands.Client.React do
   def react_to(state, :players_set), do: PlayersSet.maybe_wait(state)
   def react_to(state, :player1_turn), do: Player1Turn.maybe_wait(state)
   def react_to(state, :player2_turn), do: Player2Turn.maybe_wait(state)
-  def react_to(state, :game_over), do: GameOver.end_game(state)
+  def react_to(state, :game_over), do: GameOver.exit(state)
 end
